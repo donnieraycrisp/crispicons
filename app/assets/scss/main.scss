@@ -1,0 +1,18 @@
+:root {
+    font-size: 16px;
+    --color-primary: hsl(8, 100%, 64%);
+
+    --color-background: hsl(12, 4%, 8%);
+    --color-text: hsl(12, 4%, 88%);
+}
+
+body {
+    background-color: var(--color-background);
+    color: var(--color-text);
+    margin: 0;
+    padding: 0;
+    font-family: "Rubik", sans-serif;
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.5;
+}
