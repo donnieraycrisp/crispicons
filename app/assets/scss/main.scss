@@ -1,18 +1,23 @@
 :root {
-    font-size: 16px;
-    --color-primary: hsl(8, 100%, 64%);
+  font-size: 16px;
+  --primary-color: hsl(8, 100%, 64%);
 
-    --color-background: hsl(12, 4%, 8%);
-    --color-text: hsl(12, 4%, 88%);
+  --bg-color: hsl(12, 4%, 92%);
+  --bg-card-color: hsl(12, 4%, 100%);
+
+  --font-color: hsl(12, 4%, 8%);
+
+  --icon-color: hsl(12, 4%, 8%);
+  --icon-stroke-width: 2;
 }
 
 body {
-    background-color: var(--color-background);
-    color: var(--color-text);
-    margin: 0;
-    padding: 0;
-    font-family: "Rubik", sans-serif;
-    font-size: 1rem;
-    font-weight: 300;
-    line-height: 1.5;
+  background-color: var(--bg-color);
+  color: var(--font-color);
+  margin: 0;
+  padding: 0;
+  font-family: 'Rubik', sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.5;
 }
