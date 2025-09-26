@@ -5,7 +5,7 @@
     </div>
     <div class="content">
       <p>
-        <span class="counter">{{ iconCount }}</span> Clean and crisp open source
+        <span class="counter">{{ iconCount }}</span> clean and crisp open source
         icons made with ❤️ for designers and developers.
       </p>
     </div>
