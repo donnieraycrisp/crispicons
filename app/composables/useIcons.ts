@@ -2,6 +2,46 @@ export const useIcons = () => {
   // Icon registry - you can expand this as you add more icons
   const iconRegistry = ref([
     {
+      name: 'arrow-up',
+      category: 'interface',
+      tags: ['arrow', 'down'],
+    },
+    {
+      name: 'arrow-up-right',
+      category: 'interface',
+      tags: ['arrow', 'up', 'right'],
+    },
+    {
+      name: 'arrow-right',
+      category: 'interface',
+      tags: ['arrow', 'right'],
+    },
+    {
+      name: 'arrow-down-right',
+      category: 'interface',
+      tags: ['arrow', 'down', 'right'],
+    },
+    {
+      name: 'arrow-down',
+      category: 'interface',
+      tags: ['arrow', 'down'],
+    },
+    {
+      name: 'arrow-down-left',
+      category: 'interface',
+      tags: ['arrow', 'down', 'left'],
+    },
+    {
+      name: 'arrow-left',
+      category: 'interface',
+      tags: ['arrow', 'left'],
+    },
+    {
+      name: 'arrow-up-left',
+      category: 'interface',
+      tags: ['arrow', 'up', 'left'],
+    },
+    {
       name: 'search',
       category: 'interface',
       tags: ['search', 'find', 'magnify'],
@@ -17,6 +57,9 @@ export const useIcons = () => {
       tags: ['zoom', 'minimize', 'minus'],
     },
   ])
+
+  // Get icon count
+  const iconCount = computed(() => iconRegistry.value.length)
 
   // Filter icons by category
   const getIconsByCategory = (category: string) => {
@@ -40,6 +83,7 @@ export const useIcons = () => {
 
   return {
     iconRegistry,
+    iconCount,
     getIconsByCategory,
     searchIcons,
     getAllIcons,

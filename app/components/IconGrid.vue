@@ -94,7 +94,7 @@ const selectIcon = async (icon: any) => {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
   gap: 1rem;
-  padding: 1rem;
+  padding: 2rem;
 }
 
 .icon-grid-item {
