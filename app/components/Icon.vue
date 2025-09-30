@@ -35,7 +35,9 @@ const svgContent = ref<string>('')
 
 const loadSvgContent = async () => {
   try {
-    const response = await fetch(`/icons/${props.name}.svg`)
+    // Use the current origin for the URL
+    const url = new URL(`/icons/${props.name}.svg`, window.location.origin)
+    const response = await fetch(url.toString())
     if (response.ok) {
       const svgText = await response.text()
 

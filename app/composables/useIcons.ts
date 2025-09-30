@@ -42,6 +42,46 @@ export const useIcons = () => {
       tags: ['arrow', 'up', 'left'],
     },
     {
+      name: 'chevron-up',
+      category: 'interface',
+      tags: ['chevron', 'up'],
+    },
+    {
+      name: 'chevron-right',
+      category: 'interface',
+      tags: ['chevron', 'right'],
+    },
+    {
+      name: 'chevron-down',
+      category: 'interface',
+      tags: ['chevron', 'down'],
+    },
+    {
+      name: 'chevron-left',
+      category: 'interface',
+      tags: ['chevron', 'left'],
+    },
+    {
+      name: 'chevrons-up',
+      category: 'interface',
+      tags: ['chevrons', 'up'],
+    },
+    {
+      name: 'chevrons-right',
+      category: 'interface',
+      tags: ['chevrons', 'right'],
+    },
+    {
+      name: 'chevrons-down',
+      category: 'interface',
+      tags: ['chevrons', 'down'],
+    },
+    {
+      name: 'chevrons-left',
+      category: 'interface',
+      tags: ['chevrons', 'left'],
+    },
+    {
       name: 'search',
       category: 'interface',
       tags: ['search', 'find', 'magnify'],
