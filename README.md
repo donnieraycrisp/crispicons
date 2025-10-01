@@ -1,33 +1,7 @@
-## Setup
+# crispicons
 
-Make sure to install dependencies:
+## What are crispicons?
 
-```bash
-# npm
-npm install
-```
+crispicons are a constantly growing collection of clean and crisp open source icons made with ❤️ for designers and developers.
 
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-```
+https://crispicons.com
