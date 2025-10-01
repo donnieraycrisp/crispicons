@@ -82,6 +82,41 @@ export const useIcons = () => {
       tags: ['chevrons', 'left'],
     },
     {
+      name: 'currency--crypto-bitcoin',
+      category: 'interface',
+      tags: ['currency', 'crypto', 'bitcoin', 'btc'],
+    },
+    {
+      name: 'currency--crypto-cardano',
+      category: 'interface',
+      tags: ['currency', 'crypto', 'cardano', 'ada'],
+    },
+    {
+      name: 'currency--crypto-ethereum',
+      category: 'interface',
+      tags: ['currency', 'crypto', 'ethereum', 'eth'],
+    },
+    {
+      name: 'currency--crypto-ripple',
+      category: 'interface',
+      tags: ['currency', 'crypto', 'ripple', 'xrp'],
+    },
+    {
+      name: 'currency--crypto-solana',
+      category: 'interface',
+      tags: ['currency', 'crypto', 'solana', 'sol'],
+    },
+    {
+      name: 'currency--crypto-stellar',
+      category: 'interface',
+      tags: ['currency', 'crypto', 'stellar', 'xlm'],
+    },
+    {
+      name: 'currency--crypto-tether',
+      category: 'interface',
+      tags: ['currency', 'crypto', 'tether', 'usdt'],
+    },
+    {
       name: 'currency--dollar',
       category: 'interface',
       tags: ['currency', 'dollar'],
