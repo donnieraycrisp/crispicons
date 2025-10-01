@@ -97,6 +97,11 @@ export const useIcons = () => {
       tags: ['currency', 'pound'],
     },
     {
+      name: 'currency--rupee',
+      category: 'interface',
+      tags: ['currency', 'rupee'],
+    },
+    {
       name: 'currency--yen',
       category: 'interface',
       tags: ['currency', 'yen'],
