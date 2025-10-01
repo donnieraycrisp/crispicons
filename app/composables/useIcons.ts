@@ -2,82 +2,82 @@ export const useIcons = () => {
   // Icon registry - you can expand this as you add more icons
   const iconRegistry = ref([
     {
-      name: 'arrow-up',
+      name: 'arrow--up',
       category: 'interface',
       tags: ['arrow', 'down'],
     },
     {
-      name: 'arrow-up-right',
+      name: 'arrow--up-right',
       category: 'interface',
       tags: ['arrow', 'up', 'right'],
     },
     {
-      name: 'arrow-right',
+      name: 'arrow--right',
       category: 'interface',
       tags: ['arrow', 'right'],
     },
     {
-      name: 'arrow-down-right',
+      name: 'arrow--down-right',
       category: 'interface',
       tags: ['arrow', 'down', 'right'],
     },
     {
-      name: 'arrow-down',
+      name: 'arrow--down',
       category: 'interface',
       tags: ['arrow', 'down'],
     },
     {
-      name: 'arrow-down-left',
+      name: 'arrow--down-left',
       category: 'interface',
       tags: ['arrow', 'down', 'left'],
     },
     {
-      name: 'arrow-left',
+      name: 'arrow--left',
       category: 'interface',
       tags: ['arrow', 'left'],
     },
     {
-      name: 'arrow-up-left',
+      name: 'arrow--up-left',
       category: 'interface',
       tags: ['arrow', 'up', 'left'],
     },
     {
-      name: 'chevron-up',
+      name: 'chevron--up',
       category: 'interface',
       tags: ['chevron', 'up'],
     },
     {
-      name: 'chevron-right',
+      name: 'chevron--right',
       category: 'interface',
       tags: ['chevron', 'right'],
     },
     {
-      name: 'chevron-down',
+      name: 'chevron--down',
       category: 'interface',
       tags: ['chevron', 'down'],
     },
     {
-      name: 'chevron-left',
+      name: 'chevron--left',
       category: 'interface',
       tags: ['chevron', 'left'],
     },
     {
-      name: 'chevrons-up',
+      name: 'chevrons--up',
       category: 'interface',
       tags: ['chevrons', 'up'],
     },
     {
-      name: 'chevrons-right',
+      name: 'chevrons--right',
       category: 'interface',
       tags: ['chevrons', 'right'],
     },
     {
-      name: 'chevrons-down',
+      name: 'chevrons--down',
       category: 'interface',
       tags: ['chevrons', 'down'],
     },
     {
-      name: 'chevrons-left',
+      name: 'chevrons--left',
       category: 'interface',
       tags: ['chevrons', 'left'],
     },
@@ -87,12 +87,12 @@ export const useIcons = () => {
       tags: ['search', 'find', 'magnify'],
     },
     {
-      name: 'zoom-in',
+      name: 'zoom--in',
       category: 'interface',
       tags: ['zoom', 'magnify', 'plus'],
     },
     {
-      name: 'zoom-out',
+      name: 'zoom--out',
       category: 'interface',
       tags: ['zoom', 'minimize', 'minus'],
     },
