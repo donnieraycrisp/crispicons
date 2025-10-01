@@ -1,185 +1,146 @@
 export const useIcons = () => {
-  // Icon registry - you can expand this as you add more icons
+  // Icon registry - you can expand this as you add more icons (sorted alphabetically)
   const iconRegistry = ref([
     {
-      name: 'arrow--up',
-      category: 'interface',
-      tags: ['arrow', 'down'],
-    },
-    {
-      name: 'arrow--up-right',
-      category: 'interface',
-      tags: ['arrow', 'up', 'right'],
-    },
-    {
-      name: 'arrow--right',
-      category: 'interface',
-      tags: ['arrow', 'right'],
-    },
-    {
-      name: 'arrow--down-right',
-      category: 'interface',
-      tags: ['arrow', 'down', 'right'],
-    },
-    {
       name: 'arrow--down',
-      category: 'interface',
       tags: ['arrow', 'down'],
     },
     {
       name: 'arrow--down-left',
-      category: 'interface',
       tags: ['arrow', 'down', 'left'],
     },
     {
+      name: 'arrow--down-right',
+      tags: ['arrow', 'down', 'right'],
+    },
+    {
       name: 'arrow--left',
-      category: 'interface',
       tags: ['arrow', 'left'],
     },
     {
+      name: 'arrow--right',
+      tags: ['arrow', 'right'],
+    },
+    {
+      name: 'arrow--up',
+      tags: ['arrow', 'up'],
+    },
+    {
       name: 'arrow--up-left',
-      category: 'interface',
       tags: ['arrow', 'up', 'left'],
     },
     {
-      name: 'chevron--up',
-      category: 'interface',
-      tags: ['chevron', 'up'],
-    },
-    {
-      name: 'chevron--right',
-      category: 'interface',
-      tags: ['chevron', 'right'],
+      name: 'arrow--up-right',
+      tags: ['arrow', 'up', 'right'],
     },
     {
       name: 'chevron--down',
-      category: 'interface',
       tags: ['chevron', 'down'],
     },
     {
       name: 'chevron--left',
-      category: 'interface',
       tags: ['chevron', 'left'],
     },
     {
-      name: 'chevrons--up',
-      category: 'interface',
-      tags: ['chevrons', 'up'],
+      name: 'chevron--right',
+      tags: ['chevron', 'right'],
     },
     {
-      name: 'chevrons--right',
-      category: 'interface',
-      tags: ['chevrons', 'right'],
+      name: 'chevron--up',
+      tags: ['chevron', 'up'],
     },
     {
       name: 'chevrons--down',
-      category: 'interface',
       tags: ['chevrons', 'down'],
     },
     {
       name: 'chevrons--left',
-      category: 'interface',
       tags: ['chevrons', 'left'],
     },
     {
-      name: 'currency--crypto-bitcoin',
-      category: 'interface',
-      tags: ['currency', 'crypto', 'bitcoin', 'btc'],
+      name: 'chevrons--right',
+      tags: ['chevrons', 'right'],
     },
     {
-      name: 'currency--crypto-cardano',
-      category: 'interface',
-      tags: ['currency', 'crypto', 'cardano', 'ada'],
+      name: 'chevrons--up',
+      tags: ['chevrons', 'up'],
     },
     {
-      name: 'currency--crypto-ethereum',
-      category: 'interface',
-      tags: ['currency', 'crypto', 'ethereum', 'eth'],
+      name: 'crypto--bitcoin',
+      tags: ['crypto', 'bitcoin', 'btc'],
     },
     {
-      name: 'currency--crypto-ripple',
-      category: 'interface',
-      tags: ['currency', 'crypto', 'ripple', 'xrp'],
+      name: 'crypto--cardano',
+      tags: ['crypto', 'cardano', 'ada'],
     },
     {
-      name: 'currency--crypto-solana',
-      category: 'interface',
-      tags: ['currency', 'crypto', 'solana', 'sol'],
+      name: 'crypto--ethereum',
+      tags: ['crypto', 'ethereum', 'eth'],
     },
     {
-      name: 'currency--crypto-stellar',
-      category: 'interface',
-      tags: ['currency', 'crypto', 'stellar', 'xlm'],
+      name: 'crypto--ripple',
+      tags: ['crypto', 'ripple', 'xrp'],
     },
     {
-      name: 'currency--crypto-tether',
-      category: 'interface',
-      tags: ['currency', 'crypto', 'tether', 'usdt'],
+      name: 'crypto--solana',
+      tags: ['crypto', 'solana', 'sol'],
+    },
+    {
+      name: 'crypto--stellar',
+      tags: ['crypto', 'stellar', 'xlm'],
+    },
+    {
+      name: 'crypto--tether',
+      tags: ['crypto', 'tether', 'usdt'],
     },
     {
       name: 'currency--dollar',
-      category: 'interface',
       tags: ['currency', 'dollar'],
     },
     {
       name: 'currency--euro',
-      category: 'interface',
       tags: ['currency', 'euro'],
     },
     {
       name: 'currency--pound',
-      category: 'interface',
       tags: ['currency', 'pound'],
     },
     {
       name: 'currency--rupee',
-      category: 'interface',
       tags: ['currency', 'rupee'],
     },
     {
       name: 'currency--yen',
-      category: 'interface',
       tags: ['currency', 'yen'],
     },
     {
       name: 'cursor',
-      category: 'interface',
       tags: ['cursor'],
     },
     {
       name: 'download',
-      category: 'interface',
       tags: ['download'],
     },
     {
       name: 'search',
-      category: 'interface',
       tags: ['search', 'find', 'magnify'],
     },
     {
       name: 'upload',
-      category: 'interface',
       tags: ['upload'],
     },
     {
       name: 'zoom--in',
-      category: 'interface',
       tags: ['zoom', 'magnify', 'plus'],
     },
     {
       name: 'zoom--out',
-      category: 'interface',
       tags: ['zoom', 'minimize', 'minus'],
     },
   ])
 
   // Get icon count
   const iconCount = computed(() => iconRegistry.value.length)
-
-  // Filter icons by category
-  const getIconsByCategory = (category: string) => {
-    return iconRegistry.value.filter((icon) => icon.category === category)
-  }
 
   // Search icons by name or tags
   const searchIcons = (query: string) => {
@@ -191,15 +152,14 @@ export const useIcons = () => {
     })
   }
 
-  // Get all icons
+  // Get all icons (sorted alphabetically)
   const getAllIcons = () => {
-    return iconRegistry.value
+    return iconRegistry.value.sort((a, b) => a.name.localeCompare(b.name))
   }
 
   return {
     iconRegistry,
     iconCount,
-    getIconsByCategory,
     searchIcons,
     getAllIcons,
   }

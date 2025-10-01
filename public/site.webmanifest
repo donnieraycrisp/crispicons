@@ -1,0 +1,25 @@
+{
+  "name": "crispicons - clean and crisp open source icons made with ❤️ for designers and developers",
+  "short_name": "crispicons",
+  "description": "crispicons - clean and crisp open source icons made with ❤️ for designers and developers",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#EBEAEA",
+  "theme_color": "#FF6B4A",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "any",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["design", "icons", "open source", "developer tools"],
+  "lang": "en",
+  "dir": "ltr"
+}

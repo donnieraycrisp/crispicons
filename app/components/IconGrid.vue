@@ -1,23 +1,32 @@
 <template>
-  <div class="icon-grid">
-    <div
+  <section class="icon-grid" role="grid" aria-label="Icon collection">
+    <article
       v-for="icon in icons"
       :key="icon.name"
       class="icon-grid-item"
+      role="gridcell"
+      :aria-label="`${icon.name} icon - Click to download`"
+      :title="`Download ${icon.name} SVG icon`"
+      tabindex="0"
       @click="selectIcon(icon)"
+      @keydown.enter="selectIcon(icon)"
+      @keydown.space.prevent="selectIcon(icon)"
     >
-      <Icon
-        :name="icon.name"
-        :size="iconSize"
-        :stroke-color="strokeColor"
-        :stroke-width="strokeWidth"
-        :stroke-linecap="strokeLinecap"
-        :stroke-linejoin="strokeLinejoin"
-        :fill-color="fillColor"
-      />
-      <span>{{ icon.name }}</span>
-    </div>
-  </div>
+      <div class="icon-container" aria-hidden="true">
+        <Icon
+          :name="icon.name"
+          :size="iconSize"
+          :stroke-color="strokeColor"
+          :stroke-width="strokeWidth"
+          :stroke-linecap="strokeLinecap"
+          :stroke-linejoin="strokeLinejoin"
+          :fill-color="fillColor"
+        />
+      </div>
+      <h2 class="icon-name">{{ icon.name }}</h2>
+      <span class="sr-only">SVG icon available for download</span>
+    </article>
+  </section>
 </template>
 
 <script setup lang="ts">
@@ -188,7 +197,6 @@ const applyHybridStylingForDownload = (svgElement: Element) => {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
   gap: 1rem;
-  padding: 2rem;
 }
 
 .icon-grid-item {
@@ -196,24 +204,51 @@ const applyHybridStylingForDownload = (svgElement: Element) => {
   flex-direction: column;
   align-items: center;
   padding: 2rem 1rem 1rem 1rem;
-  gap: 2rem;
+  gap: 1rem;
   border-radius: 0.5rem;
   background-color: var(--bg-card-color);
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
 
-  span {
-    font-size: 0.75rem;
-    text-align: center;
-    transition: color 0.3s ease;
-    color: var(--icon-color);
+  &:focus {
+    outline: none;
+    border-color: var(--primary-color);
   }
 
   &:hover {
     background-color: var(--primary-color);
     cursor: url('icons/download.svg') 4 4, auto;
-
     --icon-color: var(--bg-card-color);
   }
+}
+
+.icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 4rem;
+}
+
+.icon-name {
+  font-size: 0.75rem;
+  font-weight: 400;
+  text-align: center;
+  transition: color 0.3s ease;
+  color: var(--icon-color);
+  margin: 0;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 </style>

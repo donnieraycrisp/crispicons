@@ -1,2 +1,4 @@
 User-Agent: *
-Disallow:
+Allow: /
+Disallow: /_nuxt/
+Disallow: /node_modules/
