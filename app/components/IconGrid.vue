@@ -117,6 +117,7 @@ const selectIcon = async (icon: any) => {
 
   &:hover {
     background-color: var(--primary-color);
+    cursor: url('icons/download.svg') 4 4, auto;
 
     --icon-color: var(--bg-card-color);
   }

@@ -107,9 +107,19 @@ export const useIcons = () => {
       tags: ['cursor'],
     },
     {
+      name: 'download',
+      category: 'interface',
+      tags: ['download'],
+    },
+    {
       name: 'search',
       category: 'interface',
       tags: ['search', 'find', 'magnify'],
+    },
+    {
+      name: 'upload',
+      category: 'interface',
+      tags: ['upload'],
     },
     {
       name: 'zoom--in',
