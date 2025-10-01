@@ -102,6 +102,11 @@ export const useIcons = () => {
       tags: ['currency', 'yen'],
     },
     {
+      name: 'cursor',
+      category: 'interface',
+      tags: ['cursor'],
+    },
+    {
       name: 'search',
       category: 'interface',
       tags: ['search', 'find', 'magnify'],
