@@ -9,6 +9,8 @@
     stroke-linejoin="round"
     xmlns="http://www.w3.org/2000/svg"
 >
-    <path d="M9 23L9 9L23 9" />
-    <path d="M23 23L9 9" />
+    <path d="M16 27V16" />
+    <path d="M8 5L16 16L24 5" />
+    <path d="M8 16H24" />
+    <path d="M8 21H24" />
 </svg>

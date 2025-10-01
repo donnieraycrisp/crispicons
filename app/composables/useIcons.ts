@@ -82,6 +82,26 @@ export const useIcons = () => {
       tags: ['chevrons', 'left'],
     },
     {
+      name: 'currency--dollar',
+      category: 'interface',
+      tags: ['currency', 'dollar'],
+    },
+    {
+      name: 'currency--euro',
+      category: 'interface',
+      tags: ['currency', 'euro'],
+    },
+    {
+      name: 'currency--pound',
+      category: 'interface',
+      tags: ['currency', 'pound'],
+    },
+    {
+      name: 'currency--yen',
+      category: 'interface',
+      tags: ['currency', 'yen'],
+    },
+    {
       name: 'search',
       category: 'interface',
       tags: ['search', 'find', 'magnify'],
