@@ -75,7 +75,7 @@ export default defineNuxtConfig({
         { name: 'twitter:creator', content: '@donnieraycrisp' },
 
         // Additional SEO
-        { name: 'theme-color', content: '#FF6B4A' },
+        { name: 'theme-color', content: '#EBEAEA' },
         { name: 'msapplication-TileColor', content: '#FF6B4A' },
       ],
       link: [
