@@ -10,7 +10,12 @@
   --icon-color: hsl(12, 4%, 8%);
 }
 
+* {
+  box-sizing: border-box;
+}
+
 body {
+  min-height: 100vh;
   background-color: var(--bg-color);
   color: var(--font-color);
   margin: 0;
@@ -19,4 +24,5 @@ body {
   font-size: 1.25rem;
   font-weight: 300;
   line-height: 1.5;
+  cursor: url('icons/cursor.svg') 4 4, auto;
 }
