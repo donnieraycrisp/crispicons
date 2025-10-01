@@ -218,7 +218,7 @@ const applyHybridStylingForDownload = (svgElement: Element) => {
 
   &:hover {
     background-color: var(--primary-color);
-    cursor: url('icons/download.svg') 4 4, auto;
+    cursor: url('/icons/download.svg') 4 4, auto;
     --icon-color: var(--bg-card-color);
   }
 }
