@@ -34,6 +34,10 @@ export const useIcons = () => {
       tags: ['arrow', 'up', 'right'],
     },
     {
+      name: 'avatar',
+      tags: ['avatar', 'user'],
+    },
+    {
       name: 'chevron--down',
       tags: ['chevron', 'down'],
     },
@@ -128,6 +132,38 @@ export const useIcons = () => {
     {
       name: 'upload',
       tags: ['upload'],
+    },
+    {
+      name: 'user',
+      tags: ['user'],
+    },
+    {
+      name: 'user--add',
+      tags: ['user', 'add'],
+    },
+    {
+      name: 'user--check',
+      tags: ['user', 'check'],
+    },
+    {
+      name: 'user--delete',
+      tags: ['user', 'delete'],
+    },
+    {
+      name: 'user--edit',
+      tags: ['user', 'edit'],
+    },
+    {
+      name: 'user--remove',
+      tags: ['user', 'remove'],
+    },
+    {
+      name: 'users',
+      tags: ['users'],
+    },
+    {
+      name: 'users--group',
+      tags: ['users', 'group'],
     },
     {
       name: 'zoom--in',
