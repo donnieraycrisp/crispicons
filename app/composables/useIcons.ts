@@ -4,6 +4,22 @@ export const useIcons = () => {
   // Icon registry - you can expand this as you add more icons (sorted alphabetically)
   const iconRegistry = ref<Icon[]>([
     {
+      name: 'align--center',
+      tags: ['align', 'center'],
+    },
+    {
+      name: 'align--justified',
+      tags: ['align', 'justified'],
+    },
+    {
+      name: 'align--left',
+      tags: ['align', 'left'],
+    },
+    {
+      name: 'align--right',
+      tags: ['align', 'right'],
+    },
+    {
       name: 'arrow--down',
       tags: ['arrow', 'down'],
     },
