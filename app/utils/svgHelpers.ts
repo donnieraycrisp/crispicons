@@ -4,6 +4,36 @@
  */
 
 /**
+ * Add title and description elements to SVG for accessibility and attribution
+ */
+export const addSvgMetadata = (svgElement: Element, iconName: string): void => {
+  // Create title element
+  const titleElement = document.createElementNS(
+    'http://www.w3.org/2000/svg',
+    'title'
+  )
+  titleElement.textContent = `${iconName} icon from crispicons.com`
+
+  // Create desc element
+  const descElement = document.createElementNS(
+    'http://www.w3.org/2000/svg',
+    'desc'
+  )
+  descElement.textContent =
+    'Free to use open-source SVG icon from the crispicons library'
+
+  // Insert as first children of SVG
+  const firstChild = svgElement.firstChild
+  if (firstChild) {
+    svgElement.insertBefore(descElement, firstChild)
+    svgElement.insertBefore(titleElement, descElement)
+  } else {
+    svgElement.appendChild(titleElement)
+    svgElement.appendChild(descElement)
+  }
+}
+
+/**
  * Check if an SVG element or its children have stroke attributes
  */
 export const hasElementsWithStroke = (svgElement: Element): boolean => {

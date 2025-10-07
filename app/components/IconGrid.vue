@@ -37,6 +37,7 @@ import {
   applyStrokeOnlyStylingForDownload,
   applyFillOnlyStylingForDownload,
   applyHybridStylingForDownload,
+  addSvgMetadata,
 } from '~/utils/svgHelpers'
 import { DEFAULT_DOWNLOAD_COLOR } from '~/utils/constants'
 
@@ -70,6 +71,9 @@ const selectIcon = async (icon: Icon) => {
         // Set basic SVG attributes
         svgElement.setAttribute('width', iconSize.value)
         svgElement.setAttribute('height', iconSize.value)
+
+        // Add accessibility and attribution metadata
+        addSvgMetadata(svgElement, icon.name)
 
         // Analyze the SVG to determine its type
         const hasStroke = hasElementsWithStroke(svgElement)

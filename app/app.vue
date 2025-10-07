@@ -15,6 +15,18 @@
           <span class="counter">{{ iconCount }}</span> clean, minimal, and crisp
           open-source SVG UI icons made with ❤️ for designers and developers.
         </h1>
+        <button
+          class="hero-button"
+          @click="downloadAllIcons"
+          :disabled="isDownloading"
+          :aria-label="
+            isDownloading
+              ? 'Generating zip file...'
+              : 'Download all icons as zip'
+          "
+        >
+          {{ isDownloading ? 'Preparing...' : 'Download all icons' }}
+        </button>
       </section>
       <IconGrid />
     </main>
@@ -25,7 +37,114 @@
 </template>
 
 <script setup lang="ts">
-const { iconCount } = useIcons()
+import JSZip from 'jszip'
+import type { Icon } from '~/types/icon'
+import {
+  hasElementsWithStroke,
+  hasElementsWithFill,
+  applyStrokeOnlyStylingForDownload,
+  applyFillOnlyStylingForDownload,
+  applyHybridStylingForDownload,
+  addSvgMetadata,
+} from '~/utils/svgHelpers'
+import { DEFAULT_DOWNLOAD_COLOR } from '~/utils/constants'
+
+const { iconCount, getAllIcons } = useIcons()
+const isDownloading = ref(false)
+
+// Download all icons as a zip file
+const downloadAllIcons = async () => {
+  if (isDownloading.value) return
+
+  isDownloading.value = true
+  try {
+    const zip = new JSZip()
+    const icons = getAllIcons()
+
+    // Default styling for downloaded icons
+    const iconSize = '32px'
+    const strokeWidth = 2
+    const strokeLinecap = 'round'
+    const strokeLinejoin = 'round'
+
+    // Process each icon
+    for (const icon of icons) {
+      try {
+        const response = await fetch(`/icons/${icon.name}.svg`)
+        if (response.ok) {
+          const svgText = await response.text()
+
+          // Parse and modify the SVG
+          const parser = new DOMParser()
+          const doc = parser.parseFromString(svgText, 'image/svg+xml')
+          const svgElement = doc.querySelector('svg')
+
+          if (svgElement) {
+            // Set basic SVG attributes
+            svgElement.setAttribute('width', iconSize)
+            svgElement.setAttribute('height', iconSize)
+
+            // Add accessibility and attribution metadata
+            addSvgMetadata(svgElement, icon.name)
+
+            // Analyze and apply appropriate styling
+            const hasStroke = hasElementsWithStroke(svgElement)
+            const hasFill = hasElementsWithFill(svgElement)
+
+            if (hasStroke && hasFill) {
+              applyHybridStylingForDownload(
+                svgElement,
+                DEFAULT_DOWNLOAD_COLOR,
+                strokeWidth,
+                strokeLinecap,
+                strokeLinejoin,
+                DEFAULT_DOWNLOAD_COLOR
+              )
+            } else if (hasFill && !hasStroke) {
+              applyFillOnlyStylingForDownload(
+                svgElement,
+                DEFAULT_DOWNLOAD_COLOR
+              )
+            } else {
+              applyStrokeOnlyStylingForDownload(
+                svgElement,
+                DEFAULT_DOWNLOAD_COLOR,
+                strokeWidth,
+                strokeLinecap,
+                strokeLinejoin
+              )
+            }
+
+            // Add to zip
+            zip.file(`${icon.name}.svg`, svgElement.outerHTML)
+          }
+        }
+      } catch (error) {
+        console.error(`Error processing ${icon.name}:`, error)
+      }
+    }
+
+    // Generate and download the zip
+    const blob = await zip.generateAsync({ type: 'blob' })
+    const url = URL.createObjectURL(blob)
+
+    const link = document.createElement('a')
+    link.href = url
+    link.download = 'crispicons.zip'
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+
+    // Clean up
+    URL.revokeObjectURL(url)
+
+    console.log(`Downloaded ${icons.length} icons as crispicons.zip`)
+  } catch (error) {
+    console.error('Error creating zip file:', error)
+  } finally {
+    isDownloading.value = false
+  }
+}
 
 // --- SEO meta ---
 useSeoMeta({
@@ -111,16 +230,46 @@ useHead({
   padding: 2rem;
 }
 
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 2rem;
+  gap: 2rem;
+}
+
 .hero-title {
   font-size: clamp(1rem, 4vw, 1.5rem);
   font-weight: 400;
-  margin-bottom: 2rem;
   line-height: 1.5;
 }
 
 .counter {
   font-weight: 600;
   color: var(--primary-color);
+}
+
+.hero-button {
+  font-size: 1rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.5rem;
+  background-color: var(--bg-card-color);
+  color: var(--font-color);
+  white-space: nowrap;
+  border: none;
+  font-family: inherit;
+  transition: all 0.3s ease;
+  cursor: url('/icons/download.svg') 4 4, auto;
+
+  &:hover:not(:disabled) {
+    background-color: var(--primary-color);
+    color: var(--bg-color);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: wait;
+  }
 }
 
 .footer {
