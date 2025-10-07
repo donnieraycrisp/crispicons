@@ -202,6 +202,8 @@ useHead({
 </script>
 
 <style lang="scss" scoped>
+@use '~/assets/scss/main.scss' as *;
+
 .app {
   display: flex;
   flex-direction: column;
@@ -217,6 +219,12 @@ useHead({
   a {
     font-size: 1rem;
     color: var(--font-color);
+  }
+
+  @media (max-width: $breakpoint-s) {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
   }
 }
 
@@ -236,6 +244,19 @@ useHead({
   align-items: baseline;
   margin-bottom: 2rem;
   gap: 2rem;
+
+  @media (max-width: $breakpoint-s) {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 1rem;
+
+    .hero-button {
+      flex: 1;
+      width: 100%;
+      padding: 2rem;
+    }
+  }
 }
 
 .hero-title {
