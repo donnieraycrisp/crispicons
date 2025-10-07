@@ -168,6 +168,18 @@ export const useIcons = () => {
       tags: ['download'],
     },
     {
+      name: 'form--circle',
+      tags: ['form', 'circle'],
+    },
+    {
+      name: 'form--square',
+      tags: ['form', 'square'],
+    },
+    {
+      name: 'form--triangle',
+      tags: ['form', 'triangle'],
+    },
+    {
       name: 'search',
       tags: ['search', 'find', 'magnify'],
     },
