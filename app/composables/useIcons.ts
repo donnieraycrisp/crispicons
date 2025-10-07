@@ -172,6 +172,66 @@ export const useIcons = () => {
       tags: ['search', 'find', 'magnify'],
     },
     {
+      name: 'social--discord',
+      tags: ['social', 'discord'],
+    },
+    {
+      name: 'social--dribbble',
+      tags: ['social', 'dribbble'],
+    },
+    {
+      name: 'social--facebook',
+      tags: ['social', 'facebook'],
+    },
+    {
+      name: 'social--github',
+      tags: ['social', 'github'],
+    },
+    {
+      name: 'social--instagram',
+      tags: ['social', 'instagram'],
+    },
+    {
+      name: 'social--linkedin',
+      tags: ['social', 'linkedin'],
+    },
+    {
+      name: 'social--medium',
+      tags: ['social', 'medium'],
+    },
+    {
+      name: 'social--pinterest',
+      tags: ['social', 'pinterest'],
+    },
+    {
+      name: 'social--reddit',
+      tags: ['social', 'reddit'],
+    },
+    {
+      name: 'social--snapchat',
+      tags: ['social', 'snapchat'],
+    },
+    {
+      name: 'social--tiktok',
+      tags: ['social', 'tiktok'],
+    },
+    {
+      name: 'social--twitch',
+      tags: ['social', 'twitch'],
+    },
+    {
+      name: 'social--x',
+      tags: ['social', 'x'],
+    },
+    {
+      name: 'social--xing',
+      tags: ['social', 'xing'],
+    },
+    {
+      name: 'social--youtube',
+      tags: ['social', 'youtube'],
+    },
+    {
       name: 'upload',
       tags: ['upload'],
     },
