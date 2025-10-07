@@ -140,6 +140,30 @@ export const useIcons = () => {
       tags: ['cursor'],
     },
     {
+      name: 'device--camera',
+      tags: ['device', 'camera'],
+    },
+    {
+      name: 'device--display',
+      tags: ['device', 'display'],
+    },
+    {
+      name: 'device--laptop',
+      tags: ['device', 'laptop'],
+    },
+    {
+      name: 'device--smartphone',
+      tags: ['device', 'smartphone'],
+    },
+    {
+      name: 'device--tablet',
+      tags: ['device', 'tablet'],
+    },
+    {
+      name: 'device--watch',
+      tags: ['device', 'watch'],
+    },
+    {
       name: 'download',
       tags: ['download'],
     },
