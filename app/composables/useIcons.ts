@@ -1,6 +1,8 @@
+import type { Icon } from '~/types/icon'
+
 export const useIcons = () => {
   // Icon registry - you can expand this as you add more icons (sorted alphabetically)
-  const iconRegistry = ref([
+  const iconRegistry = ref<Icon[]>([
     {
       name: 'arrow--down',
       tags: ['arrow', 'down'],

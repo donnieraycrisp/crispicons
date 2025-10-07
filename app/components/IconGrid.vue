@@ -30,6 +30,16 @@
 </template>
 
 <script setup lang="ts">
+import type { Icon } from '~/types/icon'
+import {
+  hasElementsWithStroke,
+  hasElementsWithFill,
+  applyStrokeOnlyStylingForDownload,
+  applyFillOnlyStylingForDownload,
+  applyHybridStylingForDownload,
+} from '~/utils/svgHelpers'
+import { DEFAULT_DOWNLOAD_COLOR } from '~/utils/constants'
+
 const { getAllIcons } = useIcons()
 
 // Icon styling controls
@@ -44,7 +54,7 @@ const fillColor = ref('var(--icon-color)')
 const icons = computed(() => getAllIcons())
 
 // Handle icon selection and download
-const selectIcon = async (icon: any) => {
+const selectIcon = async (icon: Icon) => {
   try {
     // Fetch the original SVG
     const response = await fetch(`/icons/${icon.name}.svg`)
@@ -62,19 +72,32 @@ const selectIcon = async (icon: any) => {
         svgElement.setAttribute('height', iconSize.value)
 
         // Analyze the SVG to determine its type
-        const hasStrokeElements = hasElementsWithStroke(svgElement)
-        const hasFillElements = hasElementsWithFill(svgElement)
+        const hasStroke = hasElementsWithStroke(svgElement)
+        const hasFill = hasElementsWithFill(svgElement)
 
         // Apply appropriate styling based on icon type
-        if (hasStrokeElements && hasFillElements) {
+        if (hasStroke && hasFill) {
           // Hybrid icon - apply both stroke and fill styling
-          applyHybridStylingForDownload(svgElement)
-        } else if (hasFillElements && !hasStrokeElements) {
+          applyHybridStylingForDownload(
+            svgElement,
+            DEFAULT_DOWNLOAD_COLOR,
+            strokeWidth.value,
+            strokeLinecap.value,
+            strokeLinejoin.value,
+            DEFAULT_DOWNLOAD_COLOR
+          )
+        } else if (hasFill && !hasStroke) {
           // Fill-only icon - apply only fill styling
-          applyFillOnlyStylingForDownload(svgElement)
+          applyFillOnlyStylingForDownload(svgElement, DEFAULT_DOWNLOAD_COLOR)
         } else {
           // Stroke-only icon - apply only stroke styling
-          applyStrokeOnlyStylingForDownload(svgElement)
+          applyStrokeOnlyStylingForDownload(
+            svgElement,
+            DEFAULT_DOWNLOAD_COLOR,
+            strokeWidth.value,
+            strokeLinecap.value,
+            strokeLinejoin.value
+          )
         }
 
         // Create the final SVG string
@@ -100,95 +123,6 @@ const selectIcon = async (icon: any) => {
   } catch (error) {
     console.error('Error downloading icon:', error)
   }
-}
-
-// Helper function to check if SVG has stroke attributes
-const hasElementsWithStroke = (svgElement: Element): boolean => {
-  // Check root SVG element first
-  const rootStroke = svgElement.getAttribute('stroke')
-  if (rootStroke && rootStroke !== 'none' && rootStroke !== 'transparent') {
-    return true
-  }
-
-  // Then check child elements
-  const elements = svgElement.querySelectorAll('*')
-  return Array.from(elements).some((element) => {
-    const stroke = element.getAttribute('stroke')
-    return stroke && stroke !== 'none' && stroke !== 'transparent'
-  })
-}
-
-// Helper function to check if SVG has fill attributes
-const hasElementsWithFill = (svgElement: Element): boolean => {
-  // Check root SVG element first
-  const rootFill = svgElement.getAttribute('fill')
-  if (rootFill && rootFill !== 'none' && rootFill !== 'transparent') {
-    return true
-  }
-
-  // Then check child elements
-  const elements = svgElement.querySelectorAll('*')
-  return Array.from(elements).some((element) => {
-    const fill = element.getAttribute('fill')
-    return fill && fill !== 'none' && fill !== 'transparent'
-  })
-}
-
-// Apply styling for stroke-only icons (download version)
-const applyStrokeOnlyStylingForDownload = (svgElement: Element) => {
-  // Set stroke attributes on the root SVG
-  svgElement.setAttribute('stroke', '#151414')
-  svgElement.setAttribute('stroke-width', strokeWidth.value.toString())
-  svgElement.setAttribute('stroke-linecap', strokeLinecap.value)
-  svgElement.setAttribute('stroke-linejoin', strokeLinejoin.value)
-
-  // Remove hardcoded stroke attributes from child elements
-  const allElements = svgElement.querySelectorAll('*')
-  allElements.forEach((element) => {
-    element.removeAttribute('stroke')
-    element.removeAttribute('stroke-width')
-    element.removeAttribute('stroke-linecap')
-    element.removeAttribute('stroke-linejoin')
-    // Ensure fill is none for stroke-only icons
-    element.setAttribute('fill', 'none')
-  })
-}
-
-// Apply styling for fill-only icons (download version)
-const applyFillOnlyStylingForDownload = (svgElement: Element) => {
-  // Set fill attribute on the root SVG
-  svgElement.setAttribute('fill', '#151414')
-
-  // Remove hardcoded attributes from child elements
-  const allElements = svgElement.querySelectorAll('*')
-  allElements.forEach((element) => {
-    element.removeAttribute('stroke')
-    element.removeAttribute('stroke-width')
-    element.removeAttribute('stroke-linecap')
-    element.removeAttribute('stroke-linejoin')
-    // Remove hardcoded fill to inherit from parent
-    element.removeAttribute('fill')
-  })
-}
-
-// Apply styling for hybrid icons (download version)
-const applyHybridStylingForDownload = (svgElement: Element) => {
-  // Set both stroke and fill attributes on the root SVG
-  svgElement.setAttribute('stroke', '#151414')
-  svgElement.setAttribute('stroke-width', strokeWidth.value.toString())
-  svgElement.setAttribute('stroke-linecap', strokeLinecap.value)
-  svgElement.setAttribute('stroke-linejoin', strokeLinejoin.value)
-  svgElement.setAttribute('fill', '#151414')
-
-  // Remove hardcoded attributes from child elements to inherit from parent
-  const allElements = svgElement.querySelectorAll('*')
-  allElements.forEach((element) => {
-    element.removeAttribute('stroke')
-    element.removeAttribute('stroke-width')
-    element.removeAttribute('stroke-linecap')
-    element.removeAttribute('stroke-linejoin')
-    element.removeAttribute('fill')
-  })
 }
 </script>
 
