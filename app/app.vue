@@ -26,6 +26,60 @@
 
 <script setup lang="ts">
 const { iconCount } = useIcons()
+
+// --- SEO meta ---
+useSeoMeta({
+  title: 'crispicons — Free Open-Source SVG UI Icons',
+  description:
+    'Minimal, clean and crisp open-source SVG UI icons for designers and developers. Download individually or the full set. A lightweight Feather Icons alternative.',
+  ogTitle: '%s',
+  ogDescription: '%s',
+  ogImage: 'https://www.crispicons.com/social-image.png',
+  twitterCard: 'summary_large_image',
+})
+
+// --- JSON-LD structured data ---
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': 'https://www.crispicons.com/#org',
+      name: 'crispicons',
+      url: 'https://www.crispicons.com/',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://www.crispicons.com/apple-touch-icon.png',
+      },
+      sameAs: ['https://twitter.com/donnieraycrisp'],
+    },
+    {
+      '@type': 'Collection',
+      '@id': 'https://www.crispicons.com/#collection',
+      url: 'https://www.crispicons.com/',
+      name: 'crispicons — SVG UI Icon Library',
+      description:
+        'Minimal, open-source SVG UI icon library with clean, crisp icons. Download individually or the full set.',
+      isAccessibleForFree: true,
+      numberOfItems: 43,
+      license: 'https://opensource.org/licenses/MIT',
+    },
+  ],
+}
+
+// --- Global head setup (title template + JSON-LD) ---
+useHead({
+  titleTemplate: (title?: string) =>
+    title
+      ? `${title} · crispicons`
+      : 'crispicons — Free Open-Source SVG UI Icons',
+  script: [
+    {
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify(jsonLd),
+    },
+  ],
+})
 </script>
 
 <style lang="scss" scoped>
