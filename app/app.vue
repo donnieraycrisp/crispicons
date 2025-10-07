@@ -2,12 +2,18 @@
   <div class="app">
     <header class="header" role="banner">
       <Logo />
+      <NuxtLink
+        to="https://github.com/donnieraycrisp/crispicons"
+        target="_blank"
+      >
+        GitHub Repository
+      </NuxtLink>
     </header>
     <main class="main-content" role="main">
       <section class="hero" aria-labelledby="hero-title">
         <h1 class="hero-title">
-          <span class="counter">{{ iconCount }}</span> clean and crisp open
-          source icons made with ❤️ for designers and developers.
+          <span class="counter">{{ iconCount }}</span> clean, minimal, and crisp
+          open-source SVG UI icons made with ❤️ for designers and developers.
         </h1>
       </section>
       <IconGrid />
@@ -31,7 +37,14 @@ const { iconCount } = useIcons()
 
 .header {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 3rem 2rem 0 2rem;
+
+  a {
+    font-size: 1rem;
+    color: var(--font-color);
+  }
 }
 
 .logo {
