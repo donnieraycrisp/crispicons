@@ -180,6 +180,30 @@ export const useIcons = () => {
       tags: ['form', 'triangle'],
     },
     {
+      name: 'math--addition',
+      tags: ['math', 'addition'],
+    },
+    {
+      name: 'math--division',
+      tags: ['math', 'division'],
+    },
+    {
+      name: 'math--exponents',
+      tags: ['math', 'exponents'],
+    },
+    {
+      name: 'math--multiplication',
+      tags: ['math', 'multiplication'],
+    },
+    {
+      name: 'math--parentheses',
+      tags: ['math', 'parentheses'],
+    },
+    {
+      name: 'math--subtraction',
+      tags: ['math', 'subtraction'],
+    },
+    {
       name: 'search',
       tags: ['search', 'find', 'magnify'],
     },
