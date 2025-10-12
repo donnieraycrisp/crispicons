@@ -208,6 +208,14 @@ export const useIcons = () => {
       tags: ['search', 'find', 'magnify'],
     },
     {
+      name: 'share',
+      tags: ['share'],
+    },
+    {
+      name: 'share--alt',
+      tags: ['share', 'alternative'],
+    },
+    {
       name: 'social--discord',
       tags: ['social', 'discord'],
     },

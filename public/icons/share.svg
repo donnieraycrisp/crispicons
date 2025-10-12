@@ -1,0 +1,17 @@
+<svg
+    width="32"
+    height="32"
+    viewBox="0 0 32 32"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    xmlns="http://www.w3.org/2000/svg"
+>
+    <ellipse cx="9" cy="16" rx="4" ry="4" />
+    <ellipse cx="21" cy="8" rx="4" ry="4" />
+    <ellipse cx="21" cy="24" rx="4" ry="4" />
+    <path d="M17.6719 10.2178L12.3271 13.7812" />
+    <path d="M17.6719 21.7812L12.3271 18.2178" />
+</svg>
