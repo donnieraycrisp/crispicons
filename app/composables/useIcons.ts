@@ -276,6 +276,10 @@ export const useIcons = () => {
       tags: ['social', 'youtube'],
     },
     {
+      name: 'target',
+      tags: ['target'],
+    },
+    {
       name: 'toggle--left',
       tags: ['toggle', 'left'],
     },
