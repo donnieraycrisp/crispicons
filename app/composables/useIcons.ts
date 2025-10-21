@@ -204,6 +204,10 @@ export const useIcons = () => {
       tags: ['math', 'subtraction'],
     },
     {
+      name: 'medal',
+      tags: ['medal', 'trophy'],
+    },
+    {
       name: 'search',
       tags: ['search', 'find', 'magnify'],
     },
@@ -286,6 +290,10 @@ export const useIcons = () => {
     {
       name: 'toggle--right',
       tags: ['toggle', 'right'],
+    },
+    {
+      name: 'trophy',
+      tags: ['trophy', 'medal'],
     },
     {
       name: 'upload',
