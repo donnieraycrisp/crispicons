@@ -52,6 +52,10 @@ export const useIcons = () => {
       tags: ['arrow', 'up', 'right'],
     },
     {
+      name: 'arrow--up-down',
+      tags: ['arrow', 'up', 'down', 'sort'],
+    },
+    {
       name: 'avatar',
       tags: ['avatar', 'user'],
     },
