@@ -100,5 +100,12 @@ watch(() => props.name, loadSvgContent, { immediate: true })
   width: 100%;
   height: 100%;
   transition: stroke 0.3s ease, fill 0.3s ease;
+
+  path,
+  circle,
+  rect,
+  ellipse {
+    transition: stroke 0.3s ease, fill 0.3s ease;
+  }
 }
 </style>

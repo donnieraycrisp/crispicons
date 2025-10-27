@@ -160,6 +160,10 @@ export const useIcons = () => {
       tags: ['device', 'laptop'],
     },
     {
+      name: 'device--server',
+      tags: ['device', 'server', 'cloud'],
+    },
+    {
       name: 'device--smartphone',
       tags: ['device', 'smartphone'],
     },
@@ -222,6 +226,10 @@ export const useIcons = () => {
     {
       name: 'math--multiplication',
       tags: ['math', 'multiplication'],
+    },
+    {
+      name: 'math--percent',
+      tags: ['math', 'percent'],
     },
     {
       name: 'math--parentheses',
@@ -314,6 +322,14 @@ export const useIcons = () => {
     {
       name: 'table',
       tags: ['table'],
+    },
+    {
+      name: 'table--columns',
+      tags: ['table', 'columns'],
+    },
+    {
+      name: 'table--rows',
+      tags: ['table', 'rows'],
     },
     {
       name: 'target',
