@@ -176,6 +176,10 @@ export const useIcons = () => {
       tags: ['download'],
     },
     {
+      name: 'electricity',
+      tags: ['electricity', 'power', 'energy'],
+    },
+    {
       name: 'form--circle',
       tags: ['form', 'circle'],
     },
@@ -186,6 +190,22 @@ export const useIcons = () => {
     {
       name: 'form--triangle',
       tags: ['form', 'triangle'],
+    },
+    {
+      name: 'globe',
+      tags: ['globe', 'world'],
+    },
+    {
+      name: 'grid',
+      tags: ['grid', 'layout'],
+    },
+    {
+      name: 'mail',
+      tags: ['mail', 'email'],
+    },
+    {
+      name: 'map',
+      tags: ['map', 'location'],
     },
     {
       name: 'math--addition',
@@ -214,6 +234,10 @@ export const useIcons = () => {
     {
       name: 'medal',
       tags: ['medal', 'trophy'],
+    },
+    {
+      name: 'menu',
+      tags: ['menu', 'hamburger'],
     },
     {
       name: 'search',
@@ -288,6 +312,10 @@ export const useIcons = () => {
       tags: ['social', 'youtube'],
     },
     {
+      name: 'table',
+      tags: ['table'],
+    },
+    {
       name: 'target',
       tags: ['target'],
     },
@@ -298,6 +326,10 @@ export const useIcons = () => {
     {
       name: 'toggle--right',
       tags: ['toggle', 'right'],
+    },
+    {
+      name: 'trash',
+      tags: ['trash', 'delete', 'remove'],
     },
     {
       name: 'trophy',
