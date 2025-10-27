@@ -53,7 +53,7 @@ export const useIcons = () => {
     },
     {
       name: 'arrow--up-down',
-      tags: ['arrow', 'up', 'down', 'sort'],
+      tags: ['arrow', 'up', 'down', 'sort', 'sorting', 'order'],
     },
     {
       name: 'avatar',
@@ -76,20 +76,24 @@ export const useIcons = () => {
       tags: ['chevron', 'up'],
     },
     {
+      name: 'chevrons--up-down',
+      tags: ['chevron', 'up', 'down', 'dropdown', 'collapse', 'expand'],
+    },
+    {
       name: 'chevrons--down',
-      tags: ['chevrons', 'down'],
+      tags: ['chevron', 'down'],
     },
     {
       name: 'chevrons--left',
-      tags: ['chevrons', 'left'],
+      tags: ['chevron', 'left'],
     },
     {
       name: 'chevrons--right',
-      tags: ['chevrons', 'right'],
+      tags: ['chevron', 'right'],
     },
     {
       name: 'chevrons--up',
-      tags: ['chevrons', 'up'],
+      tags: ['chevron', 'up'],
     },
     {
       name: 'crypto--bitcoin',
@@ -334,6 +338,46 @@ export const useIcons = () => {
     {
       name: 'users--group',
       tags: ['users', 'group'],
+    },
+    {
+      name: 'weather--cloud',
+      tags: ['weather', 'cloud'],
+    },
+    {
+      name: 'weather--moon',
+      tags: ['weather', 'moon', 'night', 'dark'],
+    },
+    {
+      name: 'weather--rain',
+      tags: ['weather', 'rain'],
+    },
+    {
+      name: 'weather--snow',
+      tags: ['weather', 'snow'],
+    },
+    {
+      name: 'weather--sun',
+      tags: ['weather', 'sun', 'day', 'light'],
+    },
+    {
+      name: 'weather--sunset',
+      tags: ['weather', 'sun', 'sunset', 'sunrise'],
+    },
+    {
+      name: 'weather--thermometer',
+      tags: ['weather', 'thermometer', 'temperature'],
+    },
+    {
+      name: 'weather--thunder',
+      tags: ['weather', 'thunder', 'storm', 'lightning'],
+    },
+    {
+      name: 'weather--umbrella',
+      tags: ['weather', 'umbrella', 'rain'],
+    },
+    {
+      name: 'weather--wind',
+      tags: ['weather', 'wind'],
     },
     {
       name: 'zoom--in',

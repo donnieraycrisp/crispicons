@@ -114,21 +114,49 @@ export const applyFillOnlyStyling = (svgElement: Element): void => {
  * Apply styling for hybrid icons (using CSS variables for display)
  */
 export const applyHybridStyling = (svgElement: Element): void => {
-  // Set both stroke and fill attributes on the root SVG
+  // For hybrid icons, set stroke attributes on the root SVG
   svgElement.setAttribute('stroke', 'var(--icon-stroke)')
   svgElement.setAttribute('stroke-width', 'var(--icon-stroke-width)')
   svgElement.setAttribute('stroke-linecap', 'var(--icon-stroke-linecap)')
   svgElement.setAttribute('stroke-linejoin', 'var(--icon-stroke-linejoin)')
-  svgElement.setAttribute('fill', 'var(--icon-fill)')
+  // Keep root fill as "none" so only explicitly filled elements get filled
+  svgElement.setAttribute('fill', 'none')
 
-  // Remove hardcoded attributes from child elements to inherit from parent
+  // Apply styling to child elements based on their current attributes
   const allElements = svgElement.querySelectorAll('*')
   allElements.forEach((element) => {
+    const currentFill = element.getAttribute('fill')
+    const currentStrokeWidth = element.getAttribute('stroke-width')
+
+    // Remove stroke attributes except stroke-width for elements with stroke-width="0"
     element.removeAttribute('stroke')
-    element.removeAttribute('stroke-width')
     element.removeAttribute('stroke-linecap')
     element.removeAttribute('stroke-linejoin')
-    element.removeAttribute('fill')
+
+    // Handle fill attribute
+    if (
+      currentFill &&
+      currentFill !== 'none' &&
+      currentFill !== 'transparent'
+    ) {
+      // Element has an explicit fill - replace currentColor with CSS variable
+      if (currentFill === 'currentColor') {
+        element.setAttribute('fill', 'var(--icon-fill)')
+      }
+      // If it's a specific color, leave it as is
+    } else {
+      // Set fill to "none" explicitly for elements that should only have stroke
+      element.setAttribute('fill', 'none')
+    }
+
+    // Handle stroke-width
+    if (currentStrokeWidth === '0') {
+      // Keep stroke-width="0" for elements that should not have stroke
+      element.setAttribute('stroke-width', '0')
+    } else {
+      // Remove stroke-width so it inherits from parent
+      element.removeAttribute('stroke-width')
+    }
   })
 }
 
@@ -193,20 +221,48 @@ export const applyHybridStylingForDownload = (
   strokeLinejoin: string,
   fillColor: string
 ): void => {
-  // Set both stroke and fill attributes on the root SVG
+  // For hybrid icons, set stroke attributes on the root SVG
   svgElement.setAttribute('stroke', strokeColor)
   svgElement.setAttribute('stroke-width', strokeWidth.toString())
   svgElement.setAttribute('stroke-linecap', strokeLinecap)
   svgElement.setAttribute('stroke-linejoin', strokeLinejoin)
-  svgElement.setAttribute('fill', fillColor)
+  // Keep root fill as "none" so only explicitly filled elements get filled
+  svgElement.setAttribute('fill', 'none')
 
-  // Remove hardcoded attributes from child elements to inherit from parent
+  // Apply styling to child elements based on their current attributes
   const allElements = svgElement.querySelectorAll('*')
   allElements.forEach((element) => {
+    const currentFill = element.getAttribute('fill')
+    const currentStrokeWidth = element.getAttribute('stroke-width')
+
+    // Remove stroke attributes except stroke-width for elements with stroke-width="0"
     element.removeAttribute('stroke')
-    element.removeAttribute('stroke-width')
     element.removeAttribute('stroke-linecap')
     element.removeAttribute('stroke-linejoin')
-    element.removeAttribute('fill')
+
+    // Handle fill attribute
+    if (
+      currentFill &&
+      currentFill !== 'none' &&
+      currentFill !== 'transparent'
+    ) {
+      // Element has an explicit fill - replace currentColor with the provided fill color
+      if (currentFill === 'currentColor') {
+        element.setAttribute('fill', fillColor)
+      }
+      // If it's a specific color, leave it as is
+    } else {
+      // Set fill to "none" explicitly for elements that should only have stroke
+      element.setAttribute('fill', 'none')
+    }
+
+    // Handle stroke-width
+    if (currentStrokeWidth === '0') {
+      // Keep stroke-width="0" for elements that should not have stroke
+      element.setAttribute('stroke-width', '0')
+    } else {
+      // Remove stroke-width so it inherits from parent
+      element.removeAttribute('stroke-width')
+    }
   })
 }
